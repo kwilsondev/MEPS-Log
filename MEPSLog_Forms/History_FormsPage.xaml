@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MEPSLog_Forms.History_FormsPage"
+             BackgroundColor="#ff726c5d"
+             Title="History">
+	<ContentPage.Content>
+
+        <ListView x:Name = "historyList" 
+                  BackgroundColor="#ff726c5d"
+                  SeparatorColor ="#0d4816"
+                  HasUnevenRows="true">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<TextCell Text="{Binding RunAsString}"  
+                              Detail="{Binding DateAsString}"
+                              TextColor="White"
+                              DetailColor="Black"
+                              />-->
+                    <ViewCell Height="60">
+                         <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnDelete" 
+                                      CommandParameter="{Binding FullDateAsString}"
+                                      Text="Delete" 
+                                      IsDestructive="True" />
+                         </ViewCell.ContextActions>
+                        <!--
+                        <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding RunAsString}"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       Margin="3,3,3,0"/>
+                                <Label Text="{Binding DateAsString}"
+                                       TextColor="Black"
+                                       FontSize="15"
+                                       Margin="10,0,3,0"/>
+                        </StackLayout>
+                        -->
+
+                        <StackLayout Orientation="Vertical">
+                        <Grid>
+            
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.25*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/> 
+                                <ColumnDefinition Width="*"/> 
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/> 
+                                <ColumnDefinition Width="*"/> 
+                                <ColumnDefinition Width="2*"/> 
+                                <ColumnDefinition Width="3*"/> 
+                        </Grid.ColumnDefinitions>
+
+                           <Label Text="M:" 
+                                  TextColor="White" 
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  Grid.Column="0"
+                                  Margin="5,0,0,0"/>
+                            
+                           <Label x:Name="averageMentalLabel"
+                                  Text="{Binding MentalAsString}" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  Grid.Column="1"/>
+                            
+                           <Label Text="E:" 
+                                  TextColor="White" 
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  Grid.Column="2"/>
+                            
+                           <Label x:Name="averageEmotionalLabel"
+                                  Text="{Binding EmotionalAsString}" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  Grid.Column="3"/>
+                            
+                           <Label Text="P:" 
+                                  TextColor="White" 
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  Grid.Column="4"/>
+                            
+                           <Label x:Name="averagePhysicalLabel"
+                                  Text="{Binding PhysicalAsString}" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  Grid.Column="5"/>
+                            
+                           <Label Text="S:" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  FontAttributes="Bold"
+                                  Grid.Column="6"/>
+                            
+                           <Label x:Name="averageSpiritualLabel"
+                                  Text="{Binding SpiritualAsString}" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  Grid.Column="7"/>
+                            
+                           <Label Text="Total:" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  FontAttributes="Bold"
+                                  Grid.Column="8"/>
+                            
+                           <Label x:Name="averageTotalLabel"
+                                  Text="{Binding TotalAsString}" 
+                                  TextColor="White" 
+                                  FontSize="18" 
+                                  Grid.Column="9"
+                                  Margin="0,0,5,0"/>
+                        </Grid>
+
+                        <Label Text="{Binding DateAsString}"
+                                       TextColor="Black"
+                                       FontSize="15"
+                                       Margin="10,0,0,0"/>
+                           
+                        </StackLayout>
+
+                    </ViewCell>
+               </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        
+	</ContentPage.Content>
+</ContentPage>

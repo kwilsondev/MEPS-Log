@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MEPSLog_Forms.Help_FormsPage"
+             BackgroundColor="#ff726c5d"
+             Title="MEPS Log">
+
+	<ContentPage.Content>
+
+        <ScrollView>
+
+        <Label Margin="5"
+               TextColor="White"
+               FontSize="20">
+
+            <Label.Text>
+            What shape are you in? Naturally, the mind normally races to your physical fitness. Your physical fitness, however, pales in comparison to your shape when you are living a complete life. There are four key aspects of everyone’s makeup (Mental, Emotional, Physical, and Spiritual); many, if not the majority, of individuals do not cultivate all four of those aspects, limiting their growth and ultimate success in life. It is certainly not uncommon to read of an individual who has gained fortune and fame due to his/her life. The mental, physical, and spiritual aspects of your life can best be represented by an equilateral triangle, a model that will assist you as you work to keep these aspects of your life in balance. The emotional aspect of your life is represented by the center of the triangle, drawing strength from the mental, physical, and spiritual aspects of one’s life and serving as the connection to those you will lead. 
+                        
+MENTAL. This is your vision, your dreams, and those things that you want to achieve - your goals. Nothing begins without a thought. No progress is made without a thought; you certainly aren’t able to share good thoughts and ideas with others when/in you spend your time thinking of issues without a purpose. The quality of one’s actions can NEVER exceed one’s thoughts, which take life as personal missions, goals and objectives.
+                        
+PHYSICAL. The physical aspect of your life transcends your fitness by light years; it represents the physical actions you take to complete your thoughts and the missions, goals, and objectives you set for yourself. This must be practiced daily; you must work toward concretely achieving those ideas that you are able to think, articulate and write down for future actions. Plans without action are nothing but dreams; dreams without actions soon become “nightmares”. The PHYSICAL aspect of your triangle represent your self-discipline, energy and fuel to accomplish your plans and dreams.
+                        
+SPIRITUAL. The spiritual is that aspect of your life that keeps our thoughts and actions in check and headed toward a noble cause. It’s now time to view your “triangle”. What shape are you in? The mental, physical, and spiritual dimensions of your life must work in concert, keeping your life in balance. Far too many folks have placed priority on thoughts and actions without any calibration by the morel compass. There, unfortunately, is no shortage of examples of how people with seemingly extraordinary abilities have let themselves and others down in recent years by losing this aspect of their triangle; many were satisfied to operate without any concern for their “shape”. Many, due to the temptations of money and/or recognition, find themselves without any spiritual base and NO moral roadmap.
+
+Now the KEY to sharing your shape!! That’s where the E comes into play -
+
+EMOTIONAL. Your emotional intelligence and capacity is the center of your triangle, connected to, and drawing strength from, each of the other dimensions. Your emotional strength and ability to share with others is directly proportional to the strength you derive from the mental, physical, and spiritual pieces of your triangle. If you don’t develop these strengths, don’t for a second think that they come naturally due to your position of authority, innate intellect o physical prowess. Too many folks have fallen victim to such faulty ideas in recent years. 
+            </Label.Text>
+        </Label>
+            
+        </ScrollView>
+        
+	</ContentPage.Content>
+</ContentPage>
