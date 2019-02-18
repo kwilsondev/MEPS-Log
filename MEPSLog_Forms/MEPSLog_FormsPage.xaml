@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:local="clr-namespace:MEPSLog_Forms" 
              x:Class="MEPSLog_Forms.MEPSLog_FormsPage"
              BackgroundColor="#ff726c5d"
@@ -91,9 +92,22 @@
 
         </Grid>
         
-    <Image Source="MEPSalpha.png" 
+    <!-- <Image Source="MEPSalpha.png" 
            x:Name="MEPSlogo" 
-           Margin="0"/>
+           Margin="0"/> -->
+        
+       <!-- <Label Text="My Shape"
+               Margin="0,10,0,0"
+               HorizontalOptions="Center"
+               FontSize="30"
+               FontAttributes="Bold"/> -->
+        
+        <views:SKCanvasView x:Name="triangleCanvas"
+                            PaintSurface="OnPaint"
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="Transparent"
+                            Margin="0"
+                            MinimumHeightRequest="50"/>
             
            
 
@@ -181,7 +195,7 @@
 
         </Grid>
 
-        <Grid> <!--Button Grid-->
+        <Grid Padding="0,0,0,25"> <!--Button Grid-->
             
         <Grid.ColumnDefinitions>
                 <ColumnDefinition /> <!--0-->

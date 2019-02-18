@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PCLStorage;
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 
 namespace MEPSLog_Forms
@@ -106,7 +108,7 @@ namespace MEPSLog_Forms
 
 
 
-        public async void SaveRun (MepsRun runIN, Label mLabel, Label eLabel, Label pLabel, Label sLabel, Label totalLabel) {
+        public async void SaveRun (MepsRun runIN, Label mLabel, Label eLabel, Label pLabel, Label sLabel, Label totalLabel, SKCanvasView triangleCanvas) {
 
             List<MepsRun> runList;
             MepsRun averageData;
@@ -165,14 +167,16 @@ namespace MEPSLog_Forms
             String newRunListJSON = JsonConvert.SerializeObject(runList);
             await historyFile.WriteAllTextAsync(newRunListJSON);
 
-            GetAveragesForLabels(mLabel, eLabel, pLabel, sLabel, totalLabel);
+            GetAveragesForLabels(mLabel, eLabel, pLabel, sLabel, totalLabel, triangleCanvas);
+
+
 
             //Debug.WriteLine(previousJSON);
             //Debug.WriteLine(newRunListJSON);
 
         }
 
-        public async void GetAveragesForLabels(Label mLabel, Label eLabel, Label pLabel, Label sLabel, Label totalLabel) {
+        public async void GetAveragesForLabels(Label mLabel, Label eLabel, Label pLabel, Label sLabel, Label totalLabel, SKCanvasView triangleCanvas) {
 
             MepsRun averageRun;
 
@@ -203,8 +207,41 @@ namespace MEPSLog_Forms
                 pLabel.Text = averageRun.physical.ToString();
                 sLabel.Text = averageRun.spiritual.ToString();
                 totalLabel.Text = averageRun.total.ToString();
+
+                triangleCanvas.InvalidateSurface();
             });
             //return averageRun;
+
+        }
+
+        public async Task<MepsRun> GetAveragesForTriangle()
+        {
+
+            MepsRun averageRun;
+
+            //Open Files
+            IFolder mepsFolder = await rootFolder.CreateFolderAsync("MEPS_Data",
+                CreationCollisionOption.OpenIfExists);
+            IFile historyFile = await mepsFolder.CreateFileAsync("Run_History.txt",
+                CreationCollisionOption.OpenIfExists);
+            IFile averageFile = await mepsFolder.CreateFileAsync("Averages.txt",
+                CreationCollisionOption.OpenIfExists);
+            Debug.WriteLine(historyFile.Path);
+
+            //Get average file JSON and create current average object
+            String averageJSON = await averageFile.ReadAllTextAsync();
+
+            if (averageJSON != "")
+            {
+                averageRun = JsonConvert.DeserializeObject<MepsRun>(averageJSON);
+            }
+            else
+            {
+                averageRun = new MepsRun(0, 0, 0, 0, DateTime.Now);
+            }
+            
+
+            return averageRun;
 
         }
 

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="MEPSLog_Forms.LeadershipTraits_FormsPage"
+             BackgroundColor="#ff726c5d"
+             Title="Leadership Traits">
+    <ContentPage.Content>
+        
+       <!-- <StackLayout Padding="10">
+
+            <views:SKCanvasView PaintSurface="OnPaint"
+                                VerticalOptions="FillAndExpand"
+                                BackgroundColor="Transparent"/>
+            
+        </StackLayout> -->
+
+        <StackLayout Margin="10">
+
+        <Label Text="Enter the values for your MEPS run below."
+               HorizontalTextAlignment="Center"
+               TextColor="Black" 
+               FontSize="15"/>
+            
+        <Label x:Name="manInTheGlassLabel"
+               Text='Always remember "The Man in the Glass".'
+               HorizontalTextAlignment="Center"
+               TextColor="Black"
+               FontSize="15"/>
+            
+        <Grid Margin="0,0,0,0"> <!--Entry Grid-->
+                
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition /> <!--0-->
+                    <ColumnDefinition /> <!--1-->
+                    <ColumnDefinition /> <!--2-->
+                    <ColumnDefinition /> <!--3-->
+                    <ColumnDefinition /> <!--4-->
+                    <ColumnDefinition /> <!--5-->
+                    <ColumnDefinition /> <!--6-->
+                    <ColumnDefinition /> <!--7-->
+                    <ColumnDefinition Width='Auto'/> <!--8-->
+                    <ColumnDefinition Width='Auto'/> <!--9-->
+            </Grid.ColumnDefinitions>
+
+               <Label Text="M:" 
+                      HorizontalTextAlignment="End"
+                      VerticalTextAlignment="Center"
+                      TextColor="Black" 
+                      FontSize="20" 
+                      Grid.Column="0"/>
+                
+               <Entry x:Name="mentalEntry" 
+                      TextColor="White" 
+                      BackgroundColor="#ff726c5d" 
+                      FontSize="18"
+                      Keyboard="Numeric"
+                      Grid.Column="1"/>
+
+               <Label Text="E:"
+                      HorizontalTextAlignment="End"
+                      VerticalTextAlignment="Center"
+                      TextColor="Black" 
+                      FontSize="20" 
+                      Grid.Column="2"/>
+                
+               <Entry x:Name="emotionalEntry"
+                      TextColor="White" 
+                      BackgroundColor="#ff726c5d" 
+                      FontSize="18" 
+                      Keyboard="Numeric"
+                      Grid.Column="3"/>
+
+               <Label Text="P:"
+                      HorizontalTextAlignment="End"
+                      VerticalTextAlignment="Center"
+                      TextColor="Black" 
+                      FontSize="20" 
+                      Grid.Column="4"/>
+                
+               <Entry x:Name="physicalEntry"
+                      TextColor="White" 
+                      BackgroundColor="#ff726c5d" 
+                      FontSize="20" 
+                      Keyboard="Numeric"
+                      Grid.Column="5"/>
+
+               <Label Text="S:"
+                      HorizontalTextAlignment="End"
+                      VerticalTextAlignment="Center"
+                      TextColor="Black" 
+                      FontSize="20" 
+                      Grid.Column="6"/>
+                
+               <Entry x:Name="spiritualEntry"
+                      TextColor="White" 
+                      BackgroundColor="#ff726c5d" 
+                      FontSize="20" 
+                      Keyboard="Numeric"
+                      Grid.Column="7"/>
+
+            </Grid>
+
+            <views:SKCanvasView x:Name="triangleCanvas"
+                                PaintSurface="OnPaint"
+                                VerticalOptions="FillAndExpand"
+                                BackgroundColor="Transparent"/>
+
+               
+                <Button Text="Draw"
+                        BackgroundColor="#0d4816"
+                        TextColor="White"
+                        Grid.Column="0"
+                        Clicked = "DrawClicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

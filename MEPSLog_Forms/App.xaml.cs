@@ -8,20 +8,49 @@ namespace MEPSLog_Forms
         {
             InitializeComponent();
 
-            NavigationPage NavPage = new NavigationPage(new MEPSLog_FormsPage());
-            NavPage.BarBackgroundColor = Color.FromHex("#0d4816");
-            NavPage.BarTextColor = Color.White;
+            //create MEPS navigation Page
+            NavigationPage mepsNavPage = new NavigationPage(new MEPSLog_FormsPage());
+            mepsNavPage.BarBackgroundColor = Color.FromHex("#0d4816");
+            mepsNavPage.BarTextColor = Color.White;
+            mepsNavPage.Title = "MEPS";
+            mepsNavPage.Icon = "triangleIcon.png";
 
-            ToolbarItem helpButton = new ToolbarItem("Help", null, async () =>
+            ToolbarItem mepsHelpButton = new ToolbarItem("Help", null, async () =>
             {
-                System.Diagnostics.Debug.WriteLine("Help Pressed");
-                var helpPage = new Help_FormsPage();
-                await NavPage.PushAsync(helpPage);
-            }
-                                                     , ToolbarItemOrder.Default, 0);
-            NavPage.ToolbarItems.Add(helpButton);
+                System.Diagnostics.Debug.WriteLine("MEPS Help Pressed");
+                var mepsHelpPage = new Help_FormsPage();
+                await mepsNavPage.PushAsync(mepsHelpPage);
+            }, ToolbarItemOrder.Default, 0);
+            mepsNavPage.ToolbarItems.Add(mepsHelpButton);
 
-            MainPage = NavPage;
+            //create traits navigation Page
+            NavigationPage traitsNavPage = new NavigationPage(new LeadershipTraits_FormsPage());
+            traitsNavPage.BarBackgroundColor = Color.FromHex("#0d4816");
+            traitsNavPage.BarTextColor = Color.White;
+            traitsNavPage.Title = "Leadership Traits";
+            traitsNavPage.Icon = "tetradecagon.png";
+
+            ToolbarItem traitsHelpButton = new ToolbarItem("Help", null, async () =>
+            {
+                System.Diagnostics.Debug.WriteLine("Traits Help Pressed");
+                var traitsHelpPage = new Help_FormsPage();
+                await mepsNavPage.PushAsync(traitsHelpPage);
+
+            }, ToolbarItemOrder.Default, 0);
+            traitsNavPage.ToolbarItems.Add(traitsHelpButton);
+
+            //create Tabbed Page
+            TabbedPage tabbedPage = new TabbedPage();
+            tabbedPage.BarTextColor = Color.FromHex("#0d4816");
+            tabbedPage.BarBackgroundColor = Color.FromHex("#0d4816");
+            tabbedPage.Title = "Traits";
+
+            tabbedPage.Children.Add(mepsNavPage);
+            tabbedPage.Children.Add(traitsNavPage);
+
+            //Use this line for both meps and leadership traits on tabs
+            //MainPage = tabbedPage;
+            MainPage = mepsNavPage;
 
             switch(Device.RuntimePlatform) {
                 case "iOS":
